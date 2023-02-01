@@ -1,0 +1,16 @@
+install.packages("ggplot2")
+
+library(ggplot2)
+
+frequency <- c(0.6, 0.3, 0.4, 0.4, 0.2, 0.6, 0.3, 0.4, 0.9, 0.2)
+BP <- c(103, 87, 32, 42, 59, 109, 79, 209, 135, 176)
+first <- c(1, 1, 1, 1, 0, 0, 0, 0, 0, 1)
+second <- c(0, 0, 1, 1, 0, 0, 1, 1, 1, 1)
+final_decision <- c(0, 1, 0, 1, 0, 1, 0, 1, 1, 1)
+
+data_frame <- data.frame(frequency, BP, first, second, final_decision)
+
+ggplot(data_frame, aes(BP, final_decision, fill=factor(final_decision))) +
+  geom_boxplot()
+
+hist(data_frame$BP)

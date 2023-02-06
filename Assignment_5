@@ -1,0 +1,6 @@
+A <- matrix(floor(runif(100, 1, 100)), nrow=10, ncol=10)
+B <- matrix(floor(runif(1000, 1, 1000)), nrow=100, ncol=100)
+
+completed_a <- solve(A)
+
+completed_b <- solve(B)

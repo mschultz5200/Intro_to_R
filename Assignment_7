@@ -1,0 +1,43 @@
+# S3 class
+
+student <- function(first_name, last_name, age, occupation) {
+  if (!is.character(first_name)) stop("First Name must be String")
+  if (!is.character(last_name)) stop("Last Name must be String")
+  if (!is.numeric(age)) stop("Age must be Numeric")
+  if (!is.character(occupation)) stop("Occupation must be String")
+  structure(list(first_name_ = first_name, last_name_ = last_name, age_ = age, occupation_ = occupation), class = "student")
+}
+
+matt <- student("Matt", "Schultz", 21, "student")
+
+
+
+print.student <- function(st) {
+  cat("First Name: ", st$first_name_,"\n")
+  cat("Last Name: ", st$last_name_,"\n")
+  cat("Age: ", st$age_,"\n")
+  cat("Occupation: ", st$occupation_,"\n")
+}
+
+# S4 classes
+
+newSparseMatrix <- function(vec) {
+  setClass("SparseMatrix",
+           contains = "matrix")
+  sparse <- diag(vec, nrow = length(vec), ncol = length(vec))
+  return(new("SparseMatrix", sparse))
+}
+
+sparse_1 <- newSparseMatrix(1:10)
+
+newStudent <- function(vec) {
+  setClass("Student",
+           contains = "vector",
+           slots = list(first = "character", last = "character", GPA = "character"))
+  if (length(vec) != 3) stop("Vector size must be 3")
+  if (!is.character(vec[1])) stop("First Name must be String")
+  if (!is.character(vec[2])) stop("Last Name must be String")
+  return(new("Student", first = vec[1], last = vec[2], GPA = vec[3]))
+}
+
+matt <- newStudent(c("Matt", "Schultz", "3.8"))

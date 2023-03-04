@@ -1,0 +1,33 @@
+install.packages("pryr")
+install.packages("ISLR")
+require(pryr)
+require(ISLR)
+require(boot)
+install.packages("plyr")
+library(data.table)
+library(plyr)
+
+
+path_name <- "/Users/matthewschultz/Desktop/Assignment 6 Dataset.csv"
+
+assignment_6 <-read.csv(path_name)
+
+StudentAverage = ddply(assignment_6,"Sex",summarise,Grade.Average=mean(Grade))
+
+# convert Sex to binary classifier
+sex = c()
+
+for (i in assignment_6$Sex) {
+  if (i == "Male") {
+    sex <- c(sex, 1)
+  } else {
+    sex <- c(sex, 0)
+  }
+}
+
+mean(sex)
+
+i_students <- subset(assignment_6, grepl("i", assignment_6$Name, ignore.case=T))
+i_students
+
+write.table(i_students, "/Users/matthewschultz/Intro_to_R/assignment_6.csv")

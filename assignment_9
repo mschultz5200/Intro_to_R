@@ -1,0 +1,19 @@
+install.packages("lattice")
+library(lattice)
+library(tidyverse)
+
+df <- read_csv('/Users/matthewschultz/Desktop/ArgentinaCPI.csv')
+
+
+plot(df$time, df$value)
+title(main = "Created With Base R Visuals")
+
+lattice::xyplot(df$value~df$time,
+                main="Created With Lattice")
+
+ggplot(df, aes(time, value)) +
+  geom_jitter() +
+  theme_linedraw() +
+  labs(
+    title = 'Visual Created With ggplot2'
+  )

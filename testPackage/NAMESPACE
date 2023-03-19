@@ -1,0 +1,2 @@
+export("assignment_6", "df", "df_sum", "file", "i", "i_students",
+       "newSparseMatrix", "path_name", "sex", "sparse_1", "StudentAverage", "wd")

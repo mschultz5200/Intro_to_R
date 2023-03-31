@@ -1,0 +1,65 @@
+---
+title: "Assignment_12"
+author: "Matthew Schultz"
+date: '2023-03-31'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# This is my test example for an R markdown script
+
+## This first code chunk will be used to install required packages.
+
+For the sake of the assignment, I will keep the packages simple. Note that the `echo = TRUE` parameter was added to the code chunk to prevent to keep the packages listed in the html.
+
+```{r, echo=TRUE}
+library(tidyverse)
+```
+
+## I will now load the data set into R
+
+The mtcars package is one of the most popular used data sets. It will be a good start for this test. Here is a [link](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html) to a fleshed out explanation of the data set.
+
+```{r}
+cars <- mtcars
+
+```
+
+I will include a page break here
+
+------------------------------------------------------------------------
+
+Now I will want to include a few different plots.
+
+### Scatter Plot measuring engine displacement and mpg
+
+```{r}
+ggplot(cars, aes(disp, mpg, color=factor(cyl))) +
+  geom_jitter()
+```
+
+This plot does not have very descriptive headers to mark the data. For this we will need to include `labs(title = "Descriptive Title"`.
+
+### Adding descriptive titles to ggplot graphs
+
+```{r}
+ggplot(cars, aes(disp, mpg, color=factor(cyl))) +
+  geom_jitter() +
+  labs(
+    title = "Engine Displacement's affect on Miles per Gallon",
+    subtitle = "Each point is colored by the number of cylinders."
+  )
+```
+
+## Conclusion
+
+Here is what we learned so far:
+
+-   The impact of `echo` within an R code chunks
+-   How to include links into the data set with `[text](link)`
+-   How to include inline pieces of code with double \`
+-   How to include list with \*
+-   That pound signs con produce different heading for the script

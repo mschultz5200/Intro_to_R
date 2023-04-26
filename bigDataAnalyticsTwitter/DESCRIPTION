@@ -1,0 +1,14 @@
+Package: bigDataAnalyticsTwitter
+Type: Package
+Title: big_data_analytics
+Version: 0.1.0
+Author: Matthew Schultz
+Maintainer: Matthew Schultz <matthewschultz@usf.edu>
+Description: The package is designed to helps individuals clean and collect data from twitter.
+    It uses a variety of packages to connect with the Twitter API and also provides a customizable 
+    way to clean the data.
+Imports: httr, jsonlite, tidyverse, plyr, tidytext, readr, stringr, text2vec, tm, qdap, qdapRegex, stopwords, openNLPdata, SnowballC, methods
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3

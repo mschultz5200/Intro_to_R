@@ -92,7 +92,7 @@ clean_tweets <- function(tweets, options = "all") { # "all" is set to the defaul
       rownames(returned) <- 1:nrow(returned)
       return(returned)
     } else {
-      return(returned)
+      return(data.frame(list(tweets = returned)))
     }
   } else {
     # this is if options equal "all"
